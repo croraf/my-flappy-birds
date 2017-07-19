@@ -4,7 +4,7 @@ import {Image, View, Animated, Easing} from 'react-native';
 
 var Dimensions = require('Dimensions');
 
-class RepeatImage extends React.Component {
+class Background extends React.Component {
 
     state = {
         leftAnim: new Animated.Value(0),
@@ -54,4 +54,4 @@ class RepeatImage extends React.Component {
     }
 }
 
-export {RepeatImage};
+export {Background};

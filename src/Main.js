@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
-import {ConnectingContainer} from './routes/connecting/ConnectingContainer';
+/*import {ConnectingContainer} from './routes/connecting/ConnectingContainer';*/
 import {PlaygroundContainer} from './routes/playground/PlaygroundContainer'
 
 import {store} from './store';

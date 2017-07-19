@@ -27,7 +27,7 @@ class Bird extends React.Component {
 
     fallingMotion = () => {
         this.state.fallingMotion = Animated.timing(
-            this.state.topContainerAnim, { toValue: 10000, duration: 90000 }
+            this.state.topContainerAnim, { toValue: 10000, duration: 60000 }
         );
 
         this.state.topContainerAnim.addListener((value) => {

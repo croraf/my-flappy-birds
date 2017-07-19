@@ -1,5 +1,9 @@
 {
   "expo": {
+    "name": "My flappy birds",
+    "description": "My copy of flappy birds classic",
+    "orientation": "portrait",
+    "icon": "https://s3.envato.com/files/104792208/backgrounds%20images/06_mountains_game_background_envato.png",
     "sdkVersion": "18.0.0"
   }
 }

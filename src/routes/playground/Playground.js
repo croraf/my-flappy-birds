@@ -1,18 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { View, Image, Text } from 'react-native';
+import { View } from 'react-native';
 
 import {Audio} from 'expo';
 
-import {RepeatImage} from './RepeatImage';
-import {Bird} from './Bird';
+import {PlaygroundContent} from './PlaygroundContent/PlaygroundContent';
+
+
 
 class Playground extends React.Component {
 
     playSound = async () => {
 
-        const soundObject = new Expo.Audio.Sound();
+        const soundObject = new Audio.Sound();
         try {
             await soundObject.loadAsync(require('./background.mp3'));
             await soundObject.playAsync();
@@ -38,15 +39,8 @@ class Playground extends React.Component {
                     width: '100%',
                     height: '80%',
                 }}>
-                <RepeatImage style={{position: 'absolute'}}/>
-                <View style={{width: '100%', height: '15%', top: '-15%', position: 'absolute', backgroundColor: 'black'}}>
-                    <Text style={{textAlign: 'center', paddingTop: '15%', color: 'white'}}>Floppy birds</Text>
-                </View>
-                <View style={{width: '100%', height: '100%', top: '0%', position: 'absolute', zIndex: 100, backgroundColor: 'transparent'}}>
-                    <Bird />
-                </View>
-                <View style={{width: '100%', height: '30%', top: '85%', position: 'absolute', backgroundColor: 'black'}}>
-                </View>
+                <PlaygroundContent />
+
             </View>
         );
     }
