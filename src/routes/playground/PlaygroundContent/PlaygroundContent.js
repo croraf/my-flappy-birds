@@ -12,13 +12,15 @@ import {BirdWrapper} from './BirdWrapper/BirdWrapper';
 class PlaygroundContent extends React.Component {
     render () {
         return (
-            <View>
+            <View style={{width: '100%', height: '100%'}}>
+                
                 <TitleBar />
 
-                <Background style={{position: 'absolute'}}/>
+                <Background />
                 <BirdWrapper />
 
                 <FooterBar />
+                
             </View>
         );
     }

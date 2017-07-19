@@ -1,8 +1,8 @@
 import React from 'react';
 
-import {Image, View, Animated, Easing} from 'react-native';
+import {Animated, Easing} from 'react-native';
 
-var Dimensions = require('Dimensions');
+import {TiledImages} from './TiledImages';
 
 class Background extends React.Component {
 
@@ -31,24 +31,9 @@ class Background extends React.Component {
 
     render () {
 
-        var images = [],  
-            imgWidth = 7,
-            winWidth = Dimensions.get('window').width;
-        for(var i=0;i<Math.ceil(winWidth / imgWidth);i++){
-        images.push((
-            <Image
-                source={require('./background.png')}
-                style={{width: '255%', height: '85%', top: '0%'}}
-                key={i}>
-            </Image>
-        ))
-        }
-        
         return (
-            <Animated.View style={{flex:1,flexDirection:'row', position: 'relative', left: this.state.leftAnim}}>
-                {
-                    images.map((img,i) => {return img;})
-                }
+            <Animated.View style={{width: '100%', height: '100%', position: 'absolute', left: this.state.leftAnim}}>
+                <TiledImages />
             </Animated.View>
         )
     }
