@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { View } from 'react-native';
 
-import {Audio} from 'expo';
+import Expo from 'expo';
 
 import {PlaygroundContent} from './PlaygroundContent/PlaygroundContent';
 
@@ -13,9 +13,9 @@ class Playground extends React.Component {
 
     playSound = async () => {
 
-        const soundObject = new Audio.Sound();
+        const soundObject = new Expo.Audio.Sound();
         try {
-            await soundObject.loadAsync(require('./background.mp3'));
+            await soundObject.loadAsync(require('./curseMusic.mp3'));
             await soundObject.playAsync();
             await soundObject.setVolumeAsync(0.3);
             await soundObject.setIsLoopingAsync(true);

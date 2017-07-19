@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Animated } from 'react-native';
+import { Animated, TouchableNativeFeedback, Easing} from 'react-native';
+import AnimatedSprite from 'react-native-animated-sprite';
+
+import {birdSprite} from './sprites/birdSprite';
 
 class Bird extends React.Component {
 
@@ -21,7 +24,7 @@ class Bird extends React.Component {
     };
 
     componentDidMount() {
-        Animated.timing( this.state.fadeAnim, { toValue: 1, duration: 5000, }).start();
+        Animated.timing( this.state.fadeAnim, { toValue: 1, duration: 4000, easing: Easing.linear}).start();
 
         Animated.timing( this.state.leftAnim, { toValue: 70, duration: 5000 }).start();
 
@@ -31,21 +34,52 @@ class Bird extends React.Component {
 
     render () {
         return (
-                        
-            <Animated.Image 
-                style={{
-                    position: 'relative',
-                    width: 45,
-                    height: 45,
-                    left: this.state.leftAnim,
-                    opacity: this.state.fadeAnim,
-                    top: this.state.topAnim,
-                }}
-                
-                source={require('./bird-icon2.png')}
-            />
+            
+            <Animated.View style={{
+                position: 'absolute',
+                width: 55,
+                height: 50,
+                left: this.state.leftAnim,
+                opacity: this.state.fadeAnim,
+                top: this.state.topAnim
+            }}>
+
+                <AnimatedSprite
+                    ref={'birdRef'}
+                    sprite={birdSprite}
+                    animationFrameIndex={[0,1,2,3]}
+                    loopAnimation={true}
+                    coordinates={{
+                        top: 0,
+                        left: 0,
+                    }}
+                    size={{
+                        width: 55,
+                        height: 50,
+                    }}
+                    onPress={this.props.onPress} />
+
+            </Animated.View>
+            
         );
     }
 }
 
 export {Bird};
+
+/*<TouchableNativeFeedback onPress={this.props.onPress}>
+
+                <Animated.Image 
+                    style={{
+                        position: 'absolute',
+                        width: 45,
+                        height: 45,
+                        left: this.state.leftAnim,
+                        opacity: this.state.fadeAnim,
+                        top: this.state.topAnim,
+                        borderWidth: 1,
+                        borderColor: 'black'
+                    }}
+                    
+                    source={require('./sprites/Frame-1.png')}
+                />*/

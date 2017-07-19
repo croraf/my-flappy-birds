@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Animated, TouchableNativeFeedback  } from 'react-native';
+import { Animated } from 'react-native';
 
 import { Bird } from './Bird'; 
 
@@ -40,6 +40,8 @@ class BirdWrapper extends React.Component {
 
     _onPressButton = () => {
 
+        console.log('rafa');
+
         if (!this.state.touchEnabled) return;
 
         this.state.touchEnabled = false;
@@ -69,12 +71,8 @@ class BirdWrapper extends React.Component {
                 height: '100%'
             }}>
 
-                <TouchableNativeFeedback  
-                    onPress={this._onPressButton}>
-
-                    <Bird />
-
-                </TouchableNativeFeedback>
+                
+                <Bird onPress={this._onPressButton} />
 
             </Animated.View>
         );
