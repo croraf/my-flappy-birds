@@ -10,7 +10,7 @@ class Bird extends React.Component {
 
     state = {
         fadeAnim: new Animated.Value(0),
-        leftAnim: new Animated.Value(10),
+        leftAnim: new Animated.Value(-50),
         topAnim: new Animated.Value(0),
         springMotion: null,
     }
@@ -24,9 +24,9 @@ class Bird extends React.Component {
     };
 
     componentDidMount() {
-        Animated.timing( this.state.fadeAnim, { toValue: 1, duration: 4000, easing: Easing.linear}).start();
+        Animated.timing( this.state.fadeAnim, { toValue: 1, duration: 5000, easing: Easing.linear}).start();
 
-        Animated.timing( this.state.leftAnim, { toValue: 70, duration: 5000 }).start();
+        Animated.timing( this.state.leftAnim, { toValue: 50, duration: 5000 }).start();
 
         this.springMotion(10);
     }
@@ -37,7 +37,8 @@ class Bird extends React.Component {
             
             <Animated.View style={{
                 position: 'absolute',
-                width: 55,
+                zIndex: 100,
+                width: 50,
                 height: 50,
                 left: this.state.leftAnim,
                 opacity: this.state.fadeAnim,
@@ -54,9 +55,10 @@ class Bird extends React.Component {
                         left: 0,
                     }}
                     size={{
-                        width: 55,
-                        height: 50,
+                        width: 50,
+                        height: 45,
                     }}
+                    style={{zIndex: 100}}
                     onPress={this.props.onPress} />
 
             </Animated.View>

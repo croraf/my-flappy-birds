@@ -7,7 +7,8 @@ import {TitleBar} from './Bars/TitleBar';
 import {FooterBar} from './Bars/FooterBar';
 
 import {Background} from './Background/Background';
-import {BirdWrapper} from './BirdWrapper/BirdWrapper';
+
+import {Frontground} from './Frontground/Frontground';
 
 class PlaygroundContent extends React.Component {
     render () {
@@ -17,7 +18,8 @@ class PlaygroundContent extends React.Component {
                 <TitleBar />
 
                 <Background />
-                <BirdWrapper />
+                
+                <Frontground />
 
                 <FooterBar />
                 

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Animated } from 'react-native';
+import { Animated, View, TouchableNativeFeedback } from 'react-native';
 
 import { Bird } from './Bird'; 
 
@@ -17,7 +17,7 @@ class BirdWrapper extends React.Component {
 
     fallingMotion = () => {
         this.state.fallingMotion = Animated.timing(
-            this.state.topContainerAnim, { toValue: 10000, duration: 60000 }
+            this.state.topContainerAnim, { toValue: 10000, duration: 40000 }
         );
 
         this.state.topContainerAnim.addListener((value) => {
@@ -62,19 +62,25 @@ class BirdWrapper extends React.Component {
 
     render () {
         return (
-            <Animated.View style={{
-                top: this.state.topContainerAnim,
-                zIndex: 100,
-                backgroundColor: 'transparent',
-                position: 'absolute',
-                width: '100%',
-                height: '100%'
-            }}>
+            <TouchableNativeFeedback 
+                onPress={this._onPressButton}
+                background={TouchableNativeFeedback.SelectableBackgroundBorderless()}>
+                <View style={{width: '100%', height: '100%', position: 'absolute', zIndex: 100}}>
+                    <Animated.View style={{
+                        top: this.state.topContainerAnim,
+                        zIndex: 100,
+                        backgroundColor: 'transparent',
+                        position: 'absolute',
+                        width: '100%',
+                        height: '100%'
+                    }}>
 
-                
-                <Bird onPress={this._onPressButton} />
+                        
+                        <Bird onPress={this._onPressButton} />
 
-            </Animated.View>
+                    </Animated.View>
+                </View>
+            </TouchableNativeFeedback>
         );
     }
 }
