@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 
 
 import {Image, View} from 'react-native';
-var Dimensions = require('Dimensions');
+import Dimensions from 'Dimensions';
 
 class TiledImages extends React.Component {
     render () {
 
         var images = [],  
-            imgWidth = 7,
+            imgWidth = 2,
             winWidth = Dimensions.get('window').width;
-        for(var i=0;i<Math.ceil(winWidth / imgWidth);i++){
+        for(var i=0;i < Math.ceil(winWidth / imgWidth);i++){
             images.push((
                 <Image
                     source={require('./background.png')}
@@ -22,7 +22,7 @@ class TiledImages extends React.Component {
         }
     
         return (
-            <View style={{flex:1, flexDirection:'row', width: '100%', height: '100%'}}>
+            <View style={{flexDirection: 'row', width: '100%', height: '100%'}}>
                 {
                     images.map((img, i) => {return img;})
                 }

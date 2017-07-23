@@ -7,7 +7,7 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const mapStateToProps = (state) => ({
-
+    appOpen: state.appState === 'active'
 });
 
 const PlaygroundContainer = connect(mapStateToProps, mapDispatchToProps)(Playground);

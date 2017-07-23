@@ -1,21 +1,7 @@
 import React from 'react';
 import {Main} from './src/Main';
 
-import {BackHandler} from 'react-native';
-
 export default class App extends React.Component {
-
-  componentDidMount () {
-    BackHandler.addEventListener('hardwareBackPress', () => {
-
-        console.log('back pressed2');
-        /*BackHandler.exitApp();*/
-    });
-  }
-
-  componentWillUnmount () {
-    BackHandler.removeEventListener('hardwareBackPress');
-  }
 
   render() {
 
@@ -24,5 +10,3 @@ export default class App extends React.Component {
     );
   }
 }
-
-/*AppRegistry.registerComponent('aaa', () => App);*/

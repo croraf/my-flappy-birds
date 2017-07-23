@@ -2,10 +2,13 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
 /*import {ConnectingContainer} from './routes/connecting/ConnectingContainer';*/
-import {PlaygroundContainer} from './routes/playground/PlaygroundContainer'
+import {PlaygroundContainer} from './routes/playground/PlaygroundContainer';
+import {MenuWrapperContainer} from './routes/menu/MenuWrapperContainer';
 
 import {store} from './store';
-import { Provider } from 'react-redux'
+import { Provider } from 'react-redux';
+
+import {OpenCloseAppHandler} from './OpenCloseAppHandler';
 
 /*const styles = StyleSheet.create({
   container: {
@@ -29,8 +32,12 @@ class Main extends React.Component {
     return (
       <Provider store={store}>
         <View style={container}>
-          {/*<ConnectingContainer />*/}
+          
+          <OpenCloseAppHandler />
+
+          <MenuWrapperContainer />
           <PlaygroundContainer />
+          
         </View>
       </Provider>
     );

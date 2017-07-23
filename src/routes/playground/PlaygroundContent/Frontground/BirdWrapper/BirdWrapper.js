@@ -21,7 +21,7 @@ class BirdWrapper extends React.Component {
         );
 
         this.state.topContainerAnim.addListener((value) => {
-            console.log(value);
+            /*console.log(value);*/
             this.state.topOffset = value.value;
             if (value.value > 320) {
                 this.state.fallingMotion.stop();

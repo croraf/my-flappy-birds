@@ -1,9 +1,8 @@
 
 const createCoin = (leftOffset) => (dispatch) => {
 
-    const offset = 300-leftOffset/2;
-    console.log('offset', offset);
-    dispatch({type: 'NEW_COIN', newCoin: {left: offset, top: 10 + Math.random()*60 + '%'}});
+    console.log('offset', leftOffset);
+    dispatch({type: 'NEW_COIN', newCoin: {left: leftOffset, top: 10 + Math.random()*60 + '%'}});
 
 }
 
