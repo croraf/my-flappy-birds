@@ -6,21 +6,24 @@ import AnimatedSprite from 'react-native-animated-sprite';
 
 import {birdSprite} from './sprites/birdSprite';
 
+import {MyBirdSprite} from './sprites/MyBirdSprite';
+
+let springMotion = null;
+
 class Bird extends React.Component {
 
     state = {
         fadeAnim: new Animated.Value(0),
         leftAnim: new Animated.Value(-50),
         topAnim: new Animated.Value(0),
-        springMotion: null,
     }
 
     springMotion = () => {
-        this.state.springMotion = Animated.spring(
+        springMotion = Animated.spring(
             this.state.topAnim, {toValue: 10, friction: -1.0/3.0, tension: -15}            
         );
 
-        this.state.springMotion.start();
+        springMotion.start();
     };
 
     componentDidMount() {
@@ -31,6 +34,10 @@ class Bird extends React.Component {
         this.springMotion(10);
     }
 
+    componentWillUnmount() {
+        springMotion.stop();
+    }
+
 
     render () {
         return (
@@ -38,28 +45,30 @@ class Bird extends React.Component {
             <Animated.View style={{
                 position: 'absolute',
                 zIndex: 100,
-                width: 50,
+                width: 52,
                 height: 50,
                 left: this.state.leftAnim,
                 opacity: this.state.fadeAnim,
                 top: this.state.topAnim
             }}>
 
-                <AnimatedSprite
+                {/*<AnimatedSprite
                     ref={'birdRef'}
                     sprite={birdSprite}
                     animationFrameIndex={[0,1,2,3]}
                     loopAnimation={true}
                     coordinates={{
-                        top: 0,
+                        top: 3,
                         left: 0,
                     }}
                     size={{
-                        width: 50,
+                        width: 52,
                         height: 45,
                     }}
                     style={{zIndex: 100}}
-                    onPress={this.props.onPress} />
+                    onPress={this.props.onPress} />*/}
+
+                    <MyBirdSprite />
 
             </Animated.View>
             

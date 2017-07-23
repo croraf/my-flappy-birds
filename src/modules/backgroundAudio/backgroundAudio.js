@@ -1,5 +1,5 @@
 import Expo from 'expo';
-const audioObject = null;
+let audioObject = null;
 
 const playAudio = async () => {
 

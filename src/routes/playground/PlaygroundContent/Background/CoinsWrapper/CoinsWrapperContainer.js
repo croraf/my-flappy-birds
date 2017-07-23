@@ -5,7 +5,7 @@ import {CoinsWrapper} from './CoinsWrapper';
 import {createCoin, deleteCoin} from '../../../../../modules/coins';
 
 const mapDispatchToProps = (dispatch) => ({
-    refreshCoins: (leftOffset) => {console.log(leftOffset); dispatch(createCoin(leftOffset)); dispatch(deleteCoin());}
+    refreshCoins: (leftOffset) => {dispatch(createCoin(leftOffset)); dispatch(deleteCoin());}
 });
 
 const mapStateToProps = (state) => ({

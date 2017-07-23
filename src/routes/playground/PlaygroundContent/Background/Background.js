@@ -8,6 +8,10 @@ import Dimensions from 'Dimensions';
 
 let mounted = true;
 
+import {TiledImages} from './TiledImages';
+
+const maxOffset = - Dimensions.get('window').width * 2.55;
+
 class Background extends React.Component {
 
     state = {
@@ -23,8 +27,8 @@ class Background extends React.Component {
         Animated.timing(
             this.state.leftAnim,
             {
-                toValue: - Dimensions.get('window').width * 2.55,
-                duration: 10000,
+                toValue: maxOffset,
+                duration: 14000,
                 easing: Easing.linear
             }
         ).start(() => {this.cyclicBackgroundMoving();});
@@ -44,16 +48,10 @@ class Background extends React.Component {
         return (
             <Animated.View style={{width: '100%', height: '100%', position: 'absolute', left: this.state.leftAnim}}>
 
-                <View style={{width: '100%', height: '100%', flexDirection: 'row'}}>
-                    <Image
-                        source={require('./background.png')}
-                        style={{width: '255%', height: '85%', top: '0%'}} />
-                    <Image
-                        source={require('./background.png')}
-                        style={{width: '255%', height: '85%', top: '0%'}} />
-                </View>
+                <TiledImages />
                 
-                <CoinsWrapperContainer left={this.state.leftAnim}/>
+                {/*<CoinsWrapperContainer leftAnim={this.state.leftAnim}/>*/}
+
             </Animated.View>
         )
     }
