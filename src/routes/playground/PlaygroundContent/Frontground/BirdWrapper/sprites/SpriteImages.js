@@ -10,7 +10,7 @@ class Image0 extends React.Component {
     }
 
     render () {
-        console.log('image0');
+        /*console.log('image0');*/
         return (
             <Image
                 source={require('./Frame-1.png')}
@@ -21,12 +21,12 @@ class Image0 extends React.Component {
 
 class Image1 extends React.Component {
     
-    /*shouldComponentUpdate () {
+    shouldComponentUpdate () {
         return false;
-    }*/
+    }
 
     render () {
-        console.log('image1');
+        /*console.log('image1');*/
         return (
             <Image
                 source={require('./frame-2.png')}
@@ -37,12 +37,12 @@ class Image1 extends React.Component {
 
 class Image2 extends React.Component {
     
-    /*shouldComponentUpdate () {
+    shouldComponentUpdate () {
         return false;
-    }*/
+    }
 
     render () {
-        console.log('image2');
+        /*console.log('image2');*/
         return (
             <Image
                 source={require('./frame-3.png')}
@@ -53,12 +53,12 @@ class Image2 extends React.Component {
 
 class Image3 extends React.Component {
     
-    /*shouldComponentUpdate () {
+    shouldComponentUpdate () {
         return false;
-    }*/
+    }
 
     render () {
-        console.log('image3');
+        /*console.log('image3');*/
         return (
             <Image
                 source={require('./frame-4.png')}
@@ -66,5 +66,7 @@ class Image3 extends React.Component {
         );
     }
 }
+
+export {Image0, Image1, Image2, Image3};
 
 export default [Image0, Image1, Image2, Image3];

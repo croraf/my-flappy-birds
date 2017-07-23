@@ -4,14 +4,24 @@ import PropTypes from 'prop-types';
 import SpriteImages from './SpriteImages';
 import {View} from 'react-native';
 
+let spriteLoop;
+
 class MyBirdSprite extends React.Component {
 
-    state = {
-        birdState: 0
+    constructor () {
+        super();
+        this.state = {
+            birdState: 0
+        };
     }
 
     componentDidMount () {
-        setInterval(()=>{this.setState({ birdState: (this.state.birdState + 1) % 4 })}, 200);
+        spriteLoop = setInterval(()=>{this.setState({ birdState: (this.state.birdState + 1) % 4 })}, 200);
+    }
+
+    componentWillUnmount () {
+        console.log(spriteLoop);
+        clearInterval(spriteLoop);
     }
 
 
